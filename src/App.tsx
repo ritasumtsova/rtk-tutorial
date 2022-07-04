@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import { useDispatch } from 'react-redux';
+import { ordered, restocked } from './app/features/cake/cakeSlice';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const dispatch = useDispatch();
+
+  const buyCake = () => {
+    if (1 > 0) {
+      dispatch(ordered());
+    } else {
+      console.error('No cakes left :(')
+    }
+  };
+
+  const refillCakes = () => {
+    dispatch(restocked(5));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h3>total cakes {''}</h3>
+     <button onClick={buyCake}>buy cake</button>
+     <button onClick={refillCakes}>refillCakes</button>
     </div>
   );
-}
+};
 
 export default App;
