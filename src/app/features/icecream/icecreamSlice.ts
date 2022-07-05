@@ -1,4 +1,4 @@
-import { createSlice, Slice } from '@reduxjs/toolkit';
+import { createSlice, Slice, PayloadAction } from '@reduxjs/toolkit';
 import { IceCreamInitState } from '../../types/initState';
 
 const initialState: IceCreamInitState = {
@@ -12,7 +12,7 @@ const iceCreamSlice: any = createSlice({
     ordered: (state: IceCreamInitState) => {
       state.totalIceCreams--;
     },
-    restocked: (state: IceCreamInitState, action: any) => {
+    restocked: (state: IceCreamInitState, action: PayloadAction<number>) => {
       state.totalIceCreams += action.payload
     }
   },

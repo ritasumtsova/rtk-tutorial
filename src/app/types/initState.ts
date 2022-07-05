@@ -1,14 +1,18 @@
-export interface CakesInitState {
+export type CakesInitState = {
   totalCakes: number;
 }
 
-export interface IceCreamInitState {
+export type IceCreamInitState = {
   totalIceCreams: number;
 }
 
-export interface UsersInitState {
-  loading: boolean;
-  users: any[];
-  error: string;
+export type User = {
+  id: number;
+  name: string;
 }
 
+export type UsersInitState = {
+  loading: boolean;
+  users: User[];
+  error: string;
+}
